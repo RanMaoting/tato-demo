@@ -1,20 +1,20 @@
-import type { UserConfigExport } from "@tarojs/cli";
+import type { UserConfigExport } from '@tarojs/cli'
+
 export default {
-   logger: {
+  logger: {
     quiet: false,
-    stats: true
+    stats: true,
   },
   mini: {},
   h5: {},
   plugins: [
-    ['taro-plugin-sync-in-wsl',
-    {
+    ['taro-plugin-sync-in-wsl', {
       weapp: [
         {
           sourcePath: 'dist',
           outputPath: '/mnt/c/projects/rms-mini-program',
-        }
+        },
       ],
-    } as any]
-  ]
+    } as any],
+  ],
 } satisfies UserConfigExport<'webpack5'>
