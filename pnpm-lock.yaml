@@ -26,6 +26,9 @@ importers:
       '@tarojs/plugin-html':
         specifier: 4.0.7
         version: 4.0.7(@tarojs/helper@4.0.7)(@tarojs/runtime@4.0.7)(@tarojs/shared@4.0.7)
+      '@tarojs/plugin-http':
+        specifier: ^4.0.7
+        version: 4.0.7(@tarojs/runtime@4.0.7)(@tarojs/shared@4.0.7)(@tarojs/taro@4.0.7(@tarojs/components@4.0.7(@tarojs/helper@4.0.7)(html-webpack-plugin@5.6.3(webpack@5.96.1(@swc/core@1.3.96)))(postcss@8.4.49)(react@18.3.1)(rollup@3.29.5)(vue@3.5.13(typescript@5.6.3))(webpack-chain@6.5.1)(webpack-dev-server@4.15.2(webpack@5.96.1(@swc/core@1.3.96)))(webpack@5.96.1(@swc/core@1.3.96)))(@tarojs/helper@4.0.7)(@tarojs/shared@4.0.7)(html-webpack-plugin@5.6.3(webpack@5.96.1(@swc/core@1.3.96)))(postcss@8.4.49)(rollup@3.29.5)(vue@3.5.13(typescript@5.6.3))(webpack-chain@6.5.1)(webpack-dev-server@4.15.2(webpack@5.96.1(@swc/core@1.3.96)))(webpack@5.96.1(@swc/core@1.3.96)))
       '@tarojs/plugin-platform-alipay':
         specifier: 4.0.7
         version: 4.0.7(@tarojs/service@4.0.7)(@tarojs/shared@4.0.7)
@@ -56,6 +59,15 @@ importers:
       '@tarojs/taro':
         specifier: 4.0.7
         version: 4.0.7(@tarojs/components@4.0.7(@tarojs/helper@4.0.7)(html-webpack-plugin@5.6.3(webpack@5.96.1(@swc/core@1.3.96)))(postcss@8.4.49)(react@18.3.1)(rollup@3.29.5)(vue@3.5.13(typescript@5.6.3))(webpack-chain@6.5.1)(webpack-dev-server@4.15.2(webpack@5.96.1(@swc/core@1.3.96)))(webpack@5.96.1(@swc/core@1.3.96)))(@tarojs/helper@4.0.7)(@tarojs/shared@4.0.7)(html-webpack-plugin@5.6.3(webpack@5.96.1(@swc/core@1.3.96)))(postcss@8.4.49)(rollup@3.29.5)(vue@3.5.13(typescript@5.6.3))(webpack-chain@6.5.1)(webpack-dev-server@4.15.2(webpack@5.96.1(@swc/core@1.3.96)))(webpack@5.96.1(@swc/core@1.3.96))
+      axios:
+        specifier: ^1.7.7
+        version: 1.7.7
+      defu:
+        specifier: ^6.1.4
+        version: 6.1.4
+      js-base64:
+        specifier: ^3.7.7
+        version: 3.7.7
       pinia:
         specifier: ^2.2.6
         version: 2.2.6(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3))
@@ -1839,6 +1851,14 @@ packages:
       '@tarojs/helper': 4.0.7
       '@tarojs/runtime': 4.0.7
       '@tarojs/shared': 4.0.7
+
+  '@tarojs/plugin-http@4.0.7':
+    resolution: {integrity: sha512-eTTm4iuHSmPyJayHtIFkgbMK+quHWBvkupEnEEX6YDpxiwLkMc47OSsrHSV7GjvJjDUkefClvYCZvkHSFaELzQ==}
+    engines: {node: '>= 18'}
+    peerDependencies:
+      '@tarojs/runtime': 4.0.7
+      '@tarojs/shared': 4.0.7
+      '@tarojs/taro': 4.0.7
 
   '@tarojs/plugin-platform-alipay@4.0.7':
     resolution: {integrity: sha512-Ybn5xaELL5SrqVs9GdQ6YlW5jILAY2+yKX8DFGYRupdtPhRKabmvAkCPFa93hF9ZQIWH/pY/q1ZeLUfnkTpTwQ==}
@@ -4583,6 +4603,9 @@ packages:
 
   joi@17.13.3:
     resolution: {integrity: sha512-otDA4ldcIx+ZXsKHWmp0YizCweVRZG96J10b0FevjfuncLO1oX59THoAmHkNubYJ+9gWsYsp5k8v4ib6oDv1fA==}
+
+  js-base64@3.7.7:
+    resolution: {integrity: sha512-7rCnleh0z2CkXhH67J8K1Ytz0b2Y+yxTPL+/KOJoa20hfnVQ/3/T6W/KflYI4bRHRagNeXeU2bkNGI3v1oS/lw==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -8855,6 +8878,12 @@ snapshots:
       '@tarojs/runtime': 4.0.7
       '@tarojs/shared': 4.0.7
 
+  '@tarojs/plugin-http@4.0.7(@tarojs/runtime@4.0.7)(@tarojs/shared@4.0.7)(@tarojs/taro@4.0.7(@tarojs/components@4.0.7(@tarojs/helper@4.0.7)(html-webpack-plugin@5.6.3(webpack@5.96.1(@swc/core@1.3.96)))(postcss@8.4.49)(react@18.3.1)(rollup@3.29.5)(vue@3.5.13(typescript@5.6.3))(webpack-chain@6.5.1)(webpack-dev-server@4.15.2(webpack@5.96.1(@swc/core@1.3.96)))(webpack@5.96.1(@swc/core@1.3.96)))(@tarojs/helper@4.0.7)(@tarojs/shared@4.0.7)(html-webpack-plugin@5.6.3(webpack@5.96.1(@swc/core@1.3.96)))(postcss@8.4.49)(rollup@3.29.5)(vue@3.5.13(typescript@5.6.3))(webpack-chain@6.5.1)(webpack-dev-server@4.15.2(webpack@5.96.1(@swc/core@1.3.96)))(webpack@5.96.1(@swc/core@1.3.96)))':
+    dependencies:
+      '@tarojs/runtime': 4.0.7
+      '@tarojs/shared': 4.0.7
+      '@tarojs/taro': 4.0.7(@tarojs/components@4.0.7(@tarojs/helper@4.0.7)(html-webpack-plugin@5.6.3(webpack@5.96.1(@swc/core@1.3.96)))(postcss@8.4.49)(react@18.3.1)(rollup@3.29.5)(vue@3.5.13(typescript@5.6.3))(webpack-chain@6.5.1)(webpack-dev-server@4.15.2(webpack@5.96.1(@swc/core@1.3.96)))(webpack@5.96.1(@swc/core@1.3.96)))(@tarojs/helper@4.0.7)(@tarojs/shared@4.0.7)(html-webpack-plugin@5.6.3(webpack@5.96.1(@swc/core@1.3.96)))(postcss@8.4.49)(rollup@3.29.5)(vue@3.5.13(typescript@5.6.3))(webpack-chain@6.5.1)(webpack-dev-server@4.15.2(webpack@5.96.1(@swc/core@1.3.96)))(webpack@5.96.1(@swc/core@1.3.96))
+
   '@tarojs/plugin-platform-alipay@4.0.7(@tarojs/service@4.0.7)(@tarojs/shared@4.0.7)':
     dependencies:
       '@tarojs/service': 4.0.7
@@ -12324,6 +12353,8 @@ snapshots:
       '@sideway/address': 4.1.5
       '@sideway/formula': 3.0.1
       '@sideway/pinpoint': 2.0.0
+
+  js-base64@3.7.7: {}
 
   js-tokens@4.0.0: {}
 
