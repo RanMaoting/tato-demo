@@ -4,6 +4,6 @@ import './index.scss'
 
 <template>
   <view class="index">
-    <view>123</view>
+    <view>gkhjasdfhjkfkjhsdhkjsdhkjf</view>
   </view>
 </template>

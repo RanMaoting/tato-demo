@@ -24,6 +24,10 @@ declare namespace NodeJS {
      */
     TARO_APP_ID: string
     TARO_APP_GLOB_API_URL: string
+    // 公众号 appid, 用于获取公众号授权
+    TARO_APP_OFFICIAL_ID: string
+    // 公众号授权地址
+    TARO_APP_OFFICIAL_AUTH_URL: string
   }
 }
 

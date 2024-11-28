@@ -47,6 +47,7 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
       type: 'webpack5',
       prebundle: {
         enable: false,
+        force: true,
       },
     },
     cache: {

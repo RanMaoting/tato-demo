@@ -1,21 +1,14 @@
 import Taro from '@tarojs/taro'
+
 import { defineStore } from 'pinia'
 
 type AccessToken = null | string
 
 interface AccessState {
   /**
-   * 权限码
-   */
-  code: string | null
-  /**
    * 登录 accessToken
    */
   accessToken: AccessToken
-  /**
-   * 是否已经检查过权限
-   */
-  isAccessChecked: boolean
   /**
    * 登录是否过期
    */
@@ -24,6 +17,7 @@ interface AccessState {
    * 登录 accessToken
    */
   refreshToken: AccessToken
+  isAccessChecked: boolean
 }
 
 /**
@@ -37,7 +31,12 @@ export const useAccessStore = defineStore('core-access', {
 
     setAccessToken(token: AccessToken) {
       this.accessToken = token
-      Taro.setStorage({ key: 'accessToken', data: token })
+      if (token) {
+        Taro.setStorage({ key: 'accessToken', data: token })
+      }
+      else {
+        Taro.removeStorage({ key: 'accessToken' })
+      }
     },
     setIsAccessChecked(isAccessChecked: boolean) {
       this.isAccessChecked = isAccessChecked
@@ -47,14 +46,18 @@ export const useAccessStore = defineStore('core-access', {
     },
     setRefreshToken(token: AccessToken) {
       this.refreshToken = token
-      Taro.setStorage({ key: 'refreshToken', data: token })
+      if (token) {
+        Taro.setStorage({ key: 'refreshToken', data: token })
+      }
+      else {
+        Taro.removeStorage({ key: 'refreshToken' })
+      }
     },
   },
   state: (): AccessState => ({
-    code: null,
     accessToken: Taro.getStorageSync('accessToken') || null,
-    isAccessChecked: false,
     loginExpired: false,
     refreshToken: Taro.getStorageSync('refreshToken') || null,
+    isAccessChecked: false,
   }),
 })

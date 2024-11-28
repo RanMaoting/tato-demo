@@ -1,1 +1,1 @@
-export * from './useWechatOfficialInfo'
+export * from './use-list'

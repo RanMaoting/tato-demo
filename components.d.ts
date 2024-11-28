@@ -7,13 +7,21 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    Counter: typeof import('./src/components/Counter.vue')['default']
+    NutAddress: typeof import('@nutui/nutui-taro')['Address']
+    NutAddressList: typeof import('@nutui/nutui-taro')['AddressList']
     NutButton: typeof import('@nutui/nutui-taro')['Button']
+    NutCell: typeof import('@nutui/nutui-taro')['Cell']
+    NutDialog: typeof import('@nutui/nutui-taro')['Dialog']
     NutForm: typeof import('@nutui/nutui-taro')['Form']
     NutFormItem: typeof import('@nutui/nutui-taro')['FormItem']
     NutInput: typeof import('@nutui/nutui-taro')['Input']
+    NutPicker: typeof import('@nutui/nutui-taro')['Picker']
+    NutPopup: typeof import('@nutui/nutui-taro')['Popup']
     NutSpace: typeof import('@nutui/nutui-taro')['Space']
+    NutTabbar: typeof import('@nutui/nutui-taro')['Tabbar']
+    NutTabbarItem: typeof import('@nutui/nutui-taro')['TabbarItem']
     NutTabPane: typeof import('@nutui/nutui-taro')['TabPane']
     NutTabs: typeof import('@nutui/nutui-taro')['Tabs']
+    NutTextarea: typeof import('@nutui/nutui-taro')['Textarea']
   }
 }

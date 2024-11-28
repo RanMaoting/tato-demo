@@ -29,5 +29,17 @@ export default {
     //     }))
     // }
   },
-
+  plugins: [
+    ['taro-plugin-sync-in-wsl', {
+      weapp: [
+        {
+          sourcePath: 'dist',
+          outputPath: '/mnt/c/projects/rms-mini-program',
+        },
+      ],
+    } as any],
+  ],
+  cache: {
+    enable: true
+  }
 } satisfies UserConfigExport<'webpack5'>

@@ -1,4 +1,4 @@
 export default definePageConfig({
-  navigationBarTitleText: '登陆页',
+  navigationBarTitleText: '缺省页',
   navigationStyle: 'custom',
 })

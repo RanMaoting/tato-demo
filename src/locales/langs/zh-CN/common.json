@@ -11,5 +11,13 @@
   "search": "搜索",
   "searching": "搜索中",
   "noData": "无数据",
-  "confirm": "确定"
+  "confirm": "确定",
+  "forbidden": "当前用户无访问权限,请重新登录",
+  "tips": {
+    "title":"温馨提示",
+    "delete": "删除后无法恢复,是否确认删除?"
+  },
+  "status": {
+    "operation-successful": "操作成功"
+  }
 }

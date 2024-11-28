@@ -1,9 +1,13 @@
 import type { HttpResponse } from '@/utils/request'
+import type { UserApi } from './modules'
+import { WechatTokenTypeEnum } from '@/enums'
 import { i18n } from '@/locales'
 import { useAccessStore } from '@/stores'
+import { useAuthStore } from '@/stores/auth'
 import { authenticateResponseInterceptor, errorMessageResponseInterceptor, RequestClient } from '@/utils/request'
-import { unref } from 'vue'
 import Taro from '@tarojs/taro'
+import { unref } from 'vue'
+import { wechatToken } from './modules'
 
 export function formatToken(token: null | string) {
   return token ? `Bearer ${token}` : null
@@ -29,15 +33,23 @@ function createRequestClient(baseURL: string) {
     }
   }
 
+  async function refreshTokenApi() {
+    const { code } = await Taro.login()
+    const params: UserApi.WechatTokenBO = {
+      code,
+      type: WechatTokenTypeEnum.MINI_PROGRAM,
+    }
+    return await wechatToken(params)
+  }
+
   /**
    * 刷新token逻辑
    */
   async function doRefreshToken() {
     const accessStore = useAccessStore()
-    const resp = await refreshTokenApi()
-    const newToken = resp.data
-    accessStore.setAccessToken(newToken)
-    return newToken
+    const { access_token } = await refreshTokenApi()
+    accessStore.setAccessToken(access_token)
+    return access_token
   }
 
   // 请求头处理
@@ -59,6 +71,7 @@ function createRequestClient(baseURL: string) {
       if (status === 200) {
         return config?.responseType === 'blob' ? response : responseData
       }
+
       throw Object.assign({}, response, { response })
     },
   })
@@ -96,11 +109,6 @@ function createRequestClient(baseURL: string) {
 
 // eslint-disable-next-line node/prefer-global/process
 const apiURL = process.env.TARO_APP_GLOB_API_URL
-
-
-console.log(apiURL);
-
-
 
 export const requestClient = createRequestClient(apiURL)
 

@@ -121,7 +121,7 @@ class RequestClient<D extends Record<string, any> = any> {
       return response as T
     }
     catch (error: any) {
-      throw error.response ? error.response.data : error
+      throw error.response
     }
   }
 }
