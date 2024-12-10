@@ -6,10 +6,11 @@ import UnoCSS from 'unocss/webpack'
 import ComponentsPlugin from 'unplugin-vue-components/webpack'
 import devConfig from './dev'
 import prodConfig from './prod'
-
 // https://taro-docs.jd.com/docs/next/config#defineconfig-辅助函数
 // eslint-disable-next-line unused-imports/no-unused-vars
 export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
+  // const UnoCSS = await import('unocss/webpack').then(r => r.default())
+
   const baseConfig: UserConfigExport<'webpack5'> = {
     projectName: 'rms-mini-program',
     date: '2024-11-18',
@@ -70,11 +71,14 @@ export default defineConfig<'webpack5'>(async (merge, { command, mode }) => {
         },
       },
       webpackChain(chain) {
-        chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
         chain.plugin('unocss').use(UnoCSS())
+        chain.resolve.plugin('tsconfig-paths').use(TsconfigPathsPlugin)
         chain.plugin('unplugin-vue-components').use(ComponentsPlugin({
           resolvers: [NutUIResolver({ taro: true })],
         }))
+      },
+      miniCssExtractPluginOption: {
+        ignoreOrder: true,
       },
     },
     h5: {

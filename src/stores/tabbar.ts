@@ -2,8 +2,9 @@ import type {
   TabbarItemProps,
 } from '@nutui/nutui-taro'
 import { getStaticUrl } from '@/utils/api'
+import Taro, { pxTransform } from '@tarojs/taro'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 
 interface ListVO extends TabbarItemProps {
   active: string
@@ -35,8 +36,31 @@ export const useTabbarStore = defineStore('tabbar', () => {
 
   const selectedTab = ref('/pages/mailing/index')
 
+  const tabbarHeight = ref<string>(pxTransform(100))
+
+  function getTabbarHeight() {
+    const { safeArea } = Taro.getSystemInfoSync() || {}
+
+    if (safeArea) {
+      const isIphoneX = safeArea.top > 40
+      if (isIphoneX) {
+        tabbarHeight.value = pxTransform(160)
+        return
+      }
+    }
+
+    tabbarHeight.value = pxTransform(100)
+  }
+
+  const pageHeight = computed(() => {
+    return `calc(100vh - ${tabbarHeight.value})`
+  })
+
   return {
     tabBars,
     selectedTab,
+    getTabbarHeight,
+    tabbarHeight,
+    pageHeight,
   }
 })

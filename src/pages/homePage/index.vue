@@ -14,6 +14,14 @@ const accessStore = useAccessStore()
 const visible = ref(false)
 const authStore = useAuthStore()
 
+// 根据权限重定向至当前用户的首页
+function handleRedirect() {
+  // TODO 暂时没有判断
+  Taro.switchTab({
+    url: '/pages/mailing/index',
+  })
+}
+
 /*
    @description  有token的情况下,先获取公众号信息,进行判断
     - code存在且subscribe为1,表示已经关注公众号,直接跳转至该用户的主页
@@ -24,25 +32,27 @@ const authStore = useAuthStore()
     这个值只有用户手动关注或者取消关注公众号的时候才会变化
     */
 async function handleGetOfficialInfo(code?: string) {
-  const { subscribe, openid } = await getWechatOfficialInfo(code)
+  if (process.env.NODE_ENV === 'production') {
+    const { subscribe, openid } = await getWechatOfficialInfo(code)
 
-  if (subscribe) {
-    // 已经关注公众号,直接跳转至该用户的主页
-    // TODO 根据权限进行跳转, 现在暂时只是跳转至邮寄
-    Taro.switchTab({
-      url: '/pages/mailing/index',
-    })
-  }
-  else {
-    // 如果openid存在,则是历史上关注过公众号
-    if (openid) {
-      visible.value = true
+    if (subscribe) {
+      // 已经关注公众号,直接跳转至该用户的主页
+      handleRedirect()
     }
     else {
-      Taro.reLaunch({
-        url: '/pages/we-chart/index',
-      })
+      // 如果openid存在,则是历史上关注过公众号
+      if (openid) {
+        visible.value = true
+      }
+      else {
+        Taro.reLaunch({
+          url: '/pages/we-chart/index',
+        })
+      }
     }
+  }
+  else {
+    handleRedirect()
   }
 }
 
@@ -72,6 +82,7 @@ useLoad(async () => {
       accessStore.setRefreshToken(refresh_token)
       // TODO 需要进行业务判断
       await authStore.fetchUserInfo()
+
       await handleGetOfficialInfo()
     }
     catch ({ data }) {

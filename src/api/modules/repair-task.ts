@@ -34,7 +34,7 @@ export namespace RepairTaskApi {
   }
   export interface MailBO {
     finished: boolean
-    id: number
+    id?: number
     info: InfoBO
     mailCompany: string
     mailCompanyNumber?: string
@@ -46,8 +46,27 @@ export namespace RepairTaskApi {
   export interface RepairTaskAddBO {
     customerMail: MailBO
   }
+
+  export interface mailInsureListVO {
+    mailCompany: string
+    name: string
+    type: string
+  }
 }
 
+/*
+新增入库
+*/
 export function addRepairTask(data: RepairTaskApi.RepairTaskAddBO) {
   return requestClient.post(getRMSApiUrl('/repairTask'), data)
+}
+
+/*
+保价类型
+/repairTasks/mailInsures
+ */
+export function getRepairTaskMailInsures(type: string) {
+  return requestClient.get<RepairTaskApi.mailInsureListVO[]>(getRMSApiUrl('/repairTasks/mailInsures'), {
+    params: { type },
+  })
 }

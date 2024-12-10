@@ -1,3 +1,17 @@
 {
-
+  "tips": {
+    "shipping-address": "请选择寄件地址",
+    "receiving-address": "请选择收件地址"
+  },
+  "contact-infos": {
+    "contacts": "联系人",
+    "phone": "联系电话",
+    "contact-address": "联系地址",
+    "region": "所在地区",
+    "detailed-address": "详细地址",
+    "default": "默认地址",
+    "postal-code": "邮政编码",
+    "phone-prompt": "请输入正确手机号",
+    "tag": "默认"
+  }
 }

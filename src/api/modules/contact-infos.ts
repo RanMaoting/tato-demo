@@ -41,6 +41,14 @@ export function getContactInfos(params: ContactInfoApi.ParamsBO) {
   )
 }
 
+/*
+详情
+/contactInfos/{id}
+ */
+export function getContactInfoDetail(id: number) {
+  return requestClient.get<ContactInfoApi.ListVO>(getRMSApiUrl(`/contactInfos/${id}`))
+}
+
 export function addContactInfo(params: DeepNullable<ContactInfoApi.AddBO>) {
   return requestClient.post<number>(getRMSApiUrl('/contactInfos'), params)
 }
