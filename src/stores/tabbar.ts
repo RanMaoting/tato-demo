@@ -56,11 +56,17 @@ export const useTabbarStore = defineStore('tabbar', () => {
     return `calc(100vh - ${tabbarHeight.value})`
   })
 
+  // 给tabbar赋初始值
+  function handleInitTabbar(path: string) {
+    selectedTab.value = path
+  }
+
   return {
     tabBars,
     selectedTab,
     getTabbarHeight,
     tabbarHeight,
     pageHeight,
+    handleInitTabbar,
   }
 })

@@ -1,4 +1,4 @@
-import { getUserInfoApi, unbindWechat } from '@/api'
+import { getUserInfoApi, unbindWechat, userLogout } from '@/api'
 
 import { $t } from '@/locales'
 
@@ -37,6 +37,7 @@ export const useAuthStore = defineStore('auth', () => {
     try {
       if (userInfo.value?.userId) {
         await unbindWechat(userInfo.value.userId)
+        await userLogout()
       }
     }
     catch {

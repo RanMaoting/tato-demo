@@ -5,6 +5,7 @@ import { WechatTokenTypeEnum } from '@/enums'
 import { $t } from '@/locales'
 import { useAccessStore } from '@/stores'
 import { useAuthStore } from '@/stores/auth'
+import { useTabbarStore } from '@/stores/tabbar'
 import { getStaticUrl } from '@/utils/api'
 import Taro, { useLoad, useRouter } from '@tarojs/taro'
 import { ref } from 'vue'
@@ -14,12 +15,15 @@ const accessStore = useAccessStore()
 const visible = ref(false)
 const authStore = useAuthStore()
 
+const { handleInitTabbar } = useTabbarStore()
+
 // 根据权限重定向至当前用户的首页
 function handleRedirect() {
   // TODO 暂时没有判断
   Taro.switchTab({
     url: '/pages/mailing/index',
   })
+  handleInitTabbar('/pages/mailing/index')
 }
 
 /*

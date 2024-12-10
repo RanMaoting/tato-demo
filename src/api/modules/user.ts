@@ -66,6 +66,12 @@ export namespace UserApi {
     userId: number
     username: string
   }
+
+  export interface ChangePasswordBO {
+    oldPassword?: string
+    password: string
+    smsCode?: string
+  }
 }
 
 /*
@@ -115,4 +121,12 @@ export function getUserInfoApi() {
   return requestClient.get<UserApi.UserInfo>(getRMSApiUrl('/users/current/userInfo'), {
     hideMessage: true,
   })
+}
+
+/*
+修改自己的密码
+/users/changePassword
+ */
+export function changePassword(data: UserApi.ChangePasswordBO) {
+  return requestClient.post(getRMSApiUrl('/users/changePassword'), data)
 }

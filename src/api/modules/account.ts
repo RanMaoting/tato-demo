@@ -30,3 +30,11 @@ export function unbindWechat(userId: number) {
     params: { userId },
   })
 }
+
+/*
+退出登录
+/users/logout
+*/
+export function userLogout() {
+  return requestClient.post(getAccountApiUrl('/users/logout'))
+}
