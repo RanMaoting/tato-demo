@@ -1,6 +1,4 @@
 <script setup>
-import { requestClient } from '@/api'
-import { getStaticUrl } from '@/utils/api'
 import { onMounted, ref } from 'vue'
 
 onMounted(() => {
@@ -10,6 +8,8 @@ onMounted(() => {
 
 <template>
   <div class="h-100vh">
-    123
+    <NutButton type="primary">
+      123
+    </NutButton>
   </div>
 </template>

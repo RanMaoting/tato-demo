@@ -10,27 +10,17 @@ interface ListVO extends TabbarItemProps {
 
 const ALL_TAB_BARS: Array<ListVO> = [
   {
-    tabTitle: '邮寄',
+    tabTitle: '首页',
     icon: 'i-assets_cl_home',
-    href: '/pages/mailing/index',
+    href: '/pages/index/index',
   },
-  {
-    tabTitle: '记录',
-    icon: 'i-assets_cl_records',
 
-    href: '/pages/records/index',
-  },
-  {
-    tabTitle: '我的',
-    icon: 'i-assets_cl_user',
-    href: '/pages/personal/index',
-  },
 ]
 
 export const useTabbarStore = defineStore('tabbar', () => {
   const tabBars = ref<Array<ListVO>>(ALL_TAB_BARS)
 
-  const selectedTab = ref('/pages/mailing/index')
+  const selectedTab = ref('/pages/index/index')
 
   const tabbarHeight = ref<string>(pxTransform(100))
 

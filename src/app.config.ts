@@ -3,14 +3,8 @@ import type { AppConfig } from '@tarojs/taro'
 export default {
   pages: [
     // 此页面不能省略, 否则会出错,主要是为了进行公众号授权跳转
-    'pages/homePage/index',
-    'pages/login/index',
-    'pages/we-chart/index',
-    'pages/official-authorized/index',
-    'pages/personal/index',
     'pages/index/index',
-    'pages/mailing/index',
-    'pages/records/index',
+    'pages/login/index',
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -22,17 +16,14 @@ export default {
     custom: true,
     list: [
       {
-        pagePath: 'pages/mailing/index',
-        text: '邮寄',
+        pagePath: 'pages/index/index',
+        text: 'index',
       },
       {
-        pagePath: 'pages/personal/index',
-        text: '我的',
+        pagePath: 'pages/login/index',
+        text: 'index',
       },
-      {
-        pagePath: 'pages/records/index',
-        text: '记录',
-      },
+
     ],
   },
   lazyCodeLoading: 'requiredComponents',
