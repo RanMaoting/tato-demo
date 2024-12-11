@@ -1,32 +1,28 @@
 import type {
   TabbarItemProps,
 } from '@nutui/nutui-taro'
-import { getStaticUrl } from '@/utils/api'
 import Taro, { pxTransform } from '@tarojs/taro'
 import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 
 interface ListVO extends TabbarItemProps {
-  active: string
 }
 
 const ALL_TAB_BARS: Array<ListVO> = [
   {
     tabTitle: '邮寄',
-    icon: getStaticUrl('/send.png'),
-    active: getStaticUrl('/send-active.png'),
+    icon: 'i-assets_cl_home',
     href: '/pages/mailing/index',
   },
-  // {
-  //   tabTitle: '记录',
-  //   icon: getStaticUrl('/send.png'),
-  //   active: getStaticUrl('/send-active.png'),
-  //   href: '/pages/index/index',
-  // },
+  {
+    tabTitle: '记录',
+    icon: 'i-assets_cl_records',
+
+    href: '/pages/records/index',
+  },
   {
     tabTitle: '我的',
-    icon: getStaticUrl('/user.png'),
-    active: getStaticUrl('/user-active.png'),
+    icon: 'i-assets_cl_user',
     href: '/pages/personal/index',
   },
 ]

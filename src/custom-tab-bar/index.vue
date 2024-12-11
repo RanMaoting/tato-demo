@@ -22,7 +22,7 @@ export default {
   <nut-tabbar v-model="tabBarStore.selectedTab" bottom safe-area-inset-bottom placeholder @tab-switch="handleTabSwitch">
     <nut-tabbar-item v-for="item in tabBarStore.tabBars" :key="item.href" :tab-title="item.tabTitle" :name="item.href">
       <template #icon="{ active }">
-        <image :src="active ? item.active : item.icon" mode="aspectFit" style="width: 30px; height: 30px;" />
+        <div class="w-60 h-60" :class="[active ? 'text-primary' : 'text-gray-400', item.icon]" />
       </template>
     </nut-tabbar-item>
   </nut-tabbar>

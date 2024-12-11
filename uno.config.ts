@@ -1,5 +1,8 @@
+// loader helpers
+import { FileSystemIconLoader } from '@iconify/utils/lib/loader/node-loaders'
 import { defineConfig, presetIcons } from 'unocss'
 import presetWeapp, { colors } from 'unocss-preset-weapp'
+
 import { extractorAttributify, transformerClass } from 'unocss-preset-weapp/transformer'
 
 const { presetWeappAttributify, transformerAttributify } = extractorAttributify()
@@ -26,9 +29,11 @@ export default defineConfig({
     presetIcons({
       collections: {
         'material-symbols': () => import('@iconify-json/material-symbols/icons.json').then(i => i.default) as any,
+        'assets': FileSystemIconLoader('./src/assets/icons'),
       },
     }),
   ],
+  safelist: ['i-assets:home', 'i-assets:mailing', 'i-assets:records', 'i-assets:repair', 'i-assets:user'],
   shortcuts: [
     {
       'border-base': 'border border-gray-500/10',

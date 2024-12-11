@@ -36,6 +36,7 @@
 	],
 	"dependencies": {
 		"@babel/runtime": "^7.26.0",
+		"@iconify/utils": "^2.2.0",
 		"@nutui/nutui-taro": "^4.3.13",
 		"@tarojs/components": "4.0.8",
 		"@tarojs/helper": "4.0.8",

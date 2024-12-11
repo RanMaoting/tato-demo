@@ -10,6 +10,7 @@ export default {
     'pages/personal/index',
     'pages/index/index',
     'pages/mailing/index',
+    'pages/records/index',
   ],
   window: {
     backgroundTextStyle: 'light',
@@ -19,13 +20,20 @@ export default {
   },
   tabBar: {
     custom: true,
-    list: [{
-      pagePath: 'pages/mailing/index',
-      text: '邮寄',
-    }, {
-      pagePath: 'pages/personal/index',
-      text: '我的',
-    }],
+    list: [
+      {
+        pagePath: 'pages/mailing/index',
+        text: '邮寄',
+      },
+      {
+        pagePath: 'pages/personal/index',
+        text: '我的',
+      },
+      {
+        pagePath: 'pages/records/index',
+        text: '记录',
+      },
+    ],
   },
   lazyCodeLoading: 'requiredComponents',
 } satisfies AppConfig
