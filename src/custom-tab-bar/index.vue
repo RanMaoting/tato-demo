@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useTabbarStore } from '@/stores/tabbar'
 import Taro from '@tarojs/taro'
+import '@/styles/theme.css'
 
 const tabBarStore = useTabbarStore()
 
@@ -19,6 +20,12 @@ export default {
 </script>
 
 <template>
+  <!-- <nut-config-provider
+    :theme-vars="{
+      primaryColor: '#008000',
+      primaryColorEnd: '#008000',
+    }"
+  > -->
   <nut-tabbar v-model="tabBarStore.selectedTab" bottom safe-area-inset-bottom placeholder @tab-switch="handleTabSwitch">
     <nut-tabbar-item v-for="item in tabBarStore.tabBars" :key="item.href" :tab-title="item.tabTitle" :name="item.href">
       <template #icon="{ active }">
@@ -26,4 +33,9 @@ export default {
       </template>
     </nut-tabbar-item>
   </nut-tabbar>
+  <!-- </nut-config-provider> -->
 </template>
+
+<style>
+/* @import '../styles/theme.css'; */
+</style>

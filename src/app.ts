@@ -9,6 +9,7 @@ import { createApp } from 'vue'
 import { useTabbarStore } from './stores/tabbar'
 import './app.scss'
 import 'uno.css'
+import '@/styles/theme.css'
 
 const App = createApp({
   onShow() {
